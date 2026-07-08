@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                git branch: 'main', url: https://github.com/shivashankar44/python_proj.git
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'docker build -t localhost:5000/python-demo:v1 .'
+            }
+        }
+
+        stage('Push') {
+            steps {
+                sh 'docker push localhost:5000/python-demo:v1'
+            }
+        }
+    }
+}
