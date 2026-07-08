@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git branch: 'main', url: https://github.com/shivashankar44/python_proj.git
+                // Correct syntax: parameters inside parentheses
+                git(branch: 'main', url: 'https://github.com/shivashankar44/python_proj.git')
             }
         }
 
